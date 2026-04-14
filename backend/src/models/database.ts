@@ -236,5 +236,16 @@ function migrateTicketsTable(): void {
     console.error("❌ Eroare migrare tickets:", err);
   }
 }
-
+export const dbRun = (query: string, params?: any[]) =>
+  getDb()
+    .prepare(query)
+    .run(params || []);
+export const dbGet = (query: string, params?: any[]) =>
+  getDb()
+    .prepare(query)
+    .get(params || []);
+export const dbAll = (query: string, params?: any[]) =>
+  getDb()
+    .prepare(query)
+    .all(params || []);
 export default getDb;
