@@ -194,7 +194,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-xl);
+  padding: 24px var(--space-xl);
   box-sizing: border-box;
 }
 
@@ -770,7 +770,7 @@ body {
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
   .luxury-content {
-    padding: 56px 14px 24px;
+    padding: 16px 14px 16px;
     align-items: center;
   }
 
