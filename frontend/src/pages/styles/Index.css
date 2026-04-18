@@ -86,7 +86,7 @@ body {
 
 /* ===== LUXURY BACKGROUND WITH BANNER ===== */
 .luxury-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -576,8 +576,11 @@ body {
   padding: var(--space-lg) var(--space-md);
   background: rgba(18, 11, 7, 0.5);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(212, 168, 83, 0.45);
+  border: 2px solid rgba(212, 168, 83, 0.7);
   border-radius: 28px;
+  box-shadow:
+    0 0 0 1px rgba(212, 168, 83, 0.15),
+    inset 0 1px 0 rgba(212, 168, 83, 0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
   position: relative;
@@ -774,7 +777,187 @@ body {
   background: var(--primary-gold-light);
 }
 
-/* ===== MOBILE ===== */
+/* ============================================================
+   LIGHT THEME — INDEX / LANDING — CLEAN WHITE + GOLD
+   ============================================================ */
+[data-theme="light"] {
+  --bg-deep: #f9f9f9;
+  --bg-rich: #f2f2f2;
+  --bg-opulent: #ffffff;
+  --primary-gold: #b07818;
+  --primary-gold-light: #c89030;
+  --primary-gold-dark: #8a5e10;
+  --text-cream: #0d0d0d;
+  --text-ivory: #1a1a1a;
+  --text-champagne: #333333;
+  --border-gold: rgba(176, 120, 24, 0.25);
+  --border-gold-hover: rgba(176, 120, 24, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-bg-hover: rgba(248, 248, 248, 0.97);
+}
+
+[data-theme="light"] .luxury-bg-image {
+  opacity: 0.5;
+  filter: sepia(40%) saturate(70%) brightness(1.25) contrast(0.9);
+}
+[data-theme="light"] .luxury-bg-overlay-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 252, 242, 0.6) 0%,
+    rgba(255, 250, 235, 0.45) 50%,
+    rgba(255, 252, 242, 0.6) 100%
+  );
+}
+[data-theme="light"] .luxury-bg-overlay-2 {
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 40%,
+    rgba(255, 248, 210, 0.3) 0%,
+    transparent 70%
+  );
+}
+[data-theme="light"] .luxury-bg-overlay-3 {
+  opacity: 0;
+}
+[data-theme="light"] .luxury-bg-pattern {
+  opacity: 0;
+}
+
+[data-theme="light"] .luxury-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(176, 120, 24, 0.25);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+[data-theme="light"] .luxury-badge-text {
+  color: #444;
+}
+[data-theme="light"] .luxury-badge-icon {
+  color: #b07818;
+}
+[data-theme="light"] .luxury-badge-dot {
+  background: #16a34a;
+}
+
+[data-theme="light"] .luxury-title {
+  background: linear-gradient(135deg, #8a5e10 0%, #b07818 50%, #8a5e10 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-theme="light"] .luxury-subtitle {
+  color: #666;
+}
+
+[data-theme="light"] .luxury-ip {
+  background: #ffffff;
+  border: 1px solid rgba(176, 120, 24, 0.25);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  color: #0d0d0d;
+}
+[data-theme="light"] .luxury-ip:hover {
+  border-color: rgba(176, 120, 24, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .luxury-ip-code {
+  color: #0d0d0d;
+}
+[data-theme="light"] .luxury-ip-icon {
+  color: #b07818;
+}
+[data-theme="light"] .luxury-ip-divider {
+  background: rgba(176, 120, 24, 0.2);
+}
+[data-theme="light"] .luxury-ip-copy,
+[data-theme="light"] .luxury-ip-copied {
+  color: #b07818;
+}
+
+[data-theme="light"] .luxury-stat {
+  background: #ffffff;
+  border: 1px solid rgba(176, 120, 24, 0.18);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+[data-theme="light"] .luxury-stat:hover {
+  border-color: rgba(176, 120, 24, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .luxury-stat-icon {
+  color: #b07818;
+}
+[data-theme="light"] .luxury-stat-value {
+  color: #0d0d0d;
+}
+[data-theme="light"] .luxury-stat-label {
+  color: #888;
+}
+
+[data-theme="light"] .luxury-link {
+  background: #ffffff;
+  border: 2px solid rgba(176, 120, 24, 0.5) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+[data-theme="light"] .luxury-link:hover {
+  border-color: rgba(176, 120, 24, 0.8) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .luxury-link-label {
+  color: #333;
+}
+
+[data-theme="light"] .luxury-footer-text,
+[data-theme="light"] .luxury-footer-copyright {
+  color: #aaa;
+}
+[data-theme="light"] .luxury-footer-divider-icon {
+  color: rgba(176, 120, 24, 0.3);
+}
+[data-theme="light"] .luxury-footer-divider-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(176, 120, 24, 0.2),
+    transparent
+  );
+}
+[data-theme="light"] .luxury-particle {
+  background: rgba(176, 120, 24, 0.3);
+}
+
+/* ── Theme Toggle Button ── */
+.luxury-theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 11, 7, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: 50%;
+  color: #d4a853;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.luxury-theme-toggle:hover {
+  border-color: #d4a853;
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 0 16px rgba(212, 168, 83, 0.25);
+}
+[data-theme="light"] .luxury-theme-toggle {
+  background: #ffffff;
+  border-color: rgba(176, 120, 24, 0.3);
+  color: #b07818;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .luxury-theme-toggle:hover {
+  box-shadow: 0 4px 16px rgba(176, 120, 24, 0.2);
+  border-color: #b07818;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
   .luxury-container {
     height: auto;
@@ -783,11 +966,9 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
   }
-
   .luxury-bg {
     position: fixed;
   }
-
   .luxury-content {
     height: auto;
     min-height: 100vh;
@@ -795,7 +976,6 @@ body {
     padding: 16px 14px;
     overflow: visible;
   }
-
   .luxury-content-wrapper {
     gap: 10px;
     overflow-x: hidden;
@@ -829,7 +1009,6 @@ body {
     font-size: 2.2rem !important;
     letter-spacing: 4px !important;
   }
-
   .luxury-subtitle {
     font-size: 0.6rem;
     letter-spacing: 1.5px;
