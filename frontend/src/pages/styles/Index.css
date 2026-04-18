@@ -41,67 +41,7 @@
   --space-2xl: 2.5rem;
 }
 
-/* ===== LIGHT THEME ===== */
-[data-theme="light"] {
-  --bg-deep: #f0ebe3;
-  --bg-rich: #e8e0d4;
-  --bg-opulent: #ddd3c4;
-
-  --primary-gold: #b07818;
-  --primary-gold-light: #c8921e;
-  --primary-gold-dark: #8a5e10;
-
-  --secondary-burgundy: #8b3a42;
-  --secondary-mahogany: #a85040;
-
-  --text-cream: #1a1208;
-  --text-ivory: #1a1208;
-  --text-champagne: #2a1e0e;
-
-  --border-gold: rgba(176, 120, 24, 0.4);
-  --border-gold-hover: rgba(176, 120, 24, 0.7);
-
-  --card-bg: rgba(255, 252, 245, 0.75);
-  --card-bg-hover: rgba(255, 252, 245, 0.9);
-}
-
-[data-theme="light"] .luxury-bg-image {
-  opacity: 0.5;
-  filter: sepia(30%) brightness(1.2) saturate(90%);
-}
-
-[data-theme="light"] .luxury-bg-overlay-3 {
-  background: linear-gradient(
-    135deg,
-    rgba(240, 235, 227, 0.78) 0%,
-    rgba(220, 210, 195, 0.55) 50%,
-    rgba(240, 235, 227, 0.78) 100%
-  );
-}
-
-[data-theme="light"] .luxury-ip {
-  background: rgba(255, 252, 245, 0.7);
-}
-
-[data-theme="light"] .luxury-stat {
-  background: rgba(255, 252, 245, 0.65);
-}
-
-[data-theme="light"] .luxury-link {
-  background: rgba(255, 252, 245, 0.65);
-}
-
-[data-theme="light"] .luxury-theme-toggle {
-  background: rgba(176, 120, 24, 0.12);
-  border-color: rgba(176, 120, 24, 0.35);
-  color: #b07818;
-}
-
-[data-theme="light"] .luxury-theme-toggle:hover {
-  background: rgba(176, 120, 24, 0.22);
-}
-
-/* ===== RESET ===== */
+/* ===== RESET LUXURY ===== */
 * {
   margin: 0;
   padding: 0;
@@ -114,6 +54,15 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 body {
   font-family: var(--font-body);
   background: var(--bg-deep);
@@ -123,33 +72,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== THEME TOGGLE BUTTON ===== */
-.luxury-theme-toggle {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 100;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid rgba(212, 168, 83, 0.4);
-  background: rgba(18, 11, 7, 0.6);
-  color: var(--primary-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.luxury-theme-toggle:hover {
-  background: rgba(212, 168, 83, 0.15);
-  border-color: var(--primary-gold);
-  transform: scale(1.08);
-}
-
-/* ===== CONTAINER ===== */
+/* ===== LUXURY CONTAINER ===== */
 .luxury-container {
   position: relative;
   width: 100%;
@@ -161,9 +84,9 @@ body {
   background: var(--bg-deep);
 }
 
-/* ===== BACKGROUND ===== */
+/* ===== LUXURY BACKGROUND WITH BANNER ===== */
 .luxury-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -267,19 +190,18 @@ body {
   }
 }
 
-/* ===== CONTENT ===== */
+/* ===== LUXURY CONTENT ===== */
 .luxury-content {
   position: relative;
   z-index: 10;
   width: 100%;
-  /* Cheie: folosim min-height + padding generos sus ca badge-ul să nu fie tăiat */
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px var(--space-xl) 16px;
+  padding: 16px var(--space-xl);
   box-sizing: border-box;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .luxury-content-wrapper {
@@ -292,9 +214,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 14px;
+  overflow-x: hidden;
 }
 
-/* ===== BADGE ===== */
+/* ===== LUXURY BADGE ===== */
 .luxury-badge {
   display: inline-flex;
   align-items: center;
@@ -341,7 +264,7 @@ body {
   color: var(--primary-gold);
 }
 
-/* ===== LOGO ===== */
+/* ===== LUXURY LOGO ===== */
 .luxury-logo {
   position: relative;
   display: flex;
@@ -384,7 +307,13 @@ body {
   transform: scale(1.02);
 }
 
-/* ===== TITLE ===== */
+@media (min-width: 768px) {
+  .luxury-logo-img {
+    height: 100px;
+  }
+}
+
+/* ===== LUXURY TITLE ===== */
 .luxury-title {
   font-family: var(--font-display);
   font-size: 4rem;
@@ -422,7 +351,7 @@ body {
   opacity: 0.9;
 }
 
-/* ===== IP ===== */
+/* ===== LUXURY SERVER IP ===== */
 .luxury-ip {
   display: inline-flex;
   align-items: center;
@@ -537,7 +466,7 @@ body {
   color: var(--primary-gold);
 }
 
-/* ===== STATS ===== */
+/* ===== LUXURY STATS ===== */
 .luxury-stats {
   display: flex;
   flex-direction: row;
@@ -629,7 +558,7 @@ body {
   white-space: nowrap;
 }
 
-/* ===== LINKS ===== */
+/* ===== LUXURY LINKS ===== */
 .luxury-links {
   display: flex;
   flex-direction: row;
@@ -647,8 +576,11 @@ body {
   padding: var(--space-lg) var(--space-md);
   background: rgba(18, 11, 7, 0.5);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(212, 168, 83, 0.45);
+  border: 2px solid rgba(212, 168, 83, 0.7);
   border-radius: 28px;
+  box-shadow:
+    0 0 0 1px rgba(212, 168, 83, 0.15),
+    inset 0 1px 0 rgba(212, 168, 83, 0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
   position: relative;
@@ -706,10 +638,12 @@ body {
   --from: #5865f2;
   --to: #4752c4;
 }
+
 .luxury-link-icon.store {
   --from: #d4a853;
   --to: #b88a3d;
 }
+
 .luxury-link-icon.panel {
   --from: #9e4a3b;
   --to: #722f37;
@@ -734,7 +668,7 @@ body {
   color: var(--primary-gold);
 }
 
-/* ===== FOOTER ===== */
+/* ===== LUXURY FOOTER ===== */
 .luxury-footer {
   margin-top: 4px;
   padding-top: var(--space-sm);
@@ -803,7 +737,7 @@ body {
   margin-top: 0.35rem;
 }
 
-/* ===== ANIMATIONS ===== */
+/* ===== LUXURY ANIMATIONS ===== */
 @keyframes ping-luxury {
   75%,
   100% {
@@ -824,79 +758,207 @@ body {
   }
 }
 
-/* ===== SCROLLBAR ===== */
+/* ===== LUXURY SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-deep);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--primary-gold);
   border-radius: 4px;
   border: 1px solid var(--bg-rich);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-gold-light);
 }
 
-/* ===== ZOOM / VIEWPORT MICI (desktop cu zoom 90-110%) ===== */
-/* Când viewport-ul e mai scurt de 700px pe desktop, reducem gap-urile */
-@media (max-height: 700px) and (min-width: 769px) {
-  .luxury-content {
-    padding: 12px var(--space-xl);
-  }
-  .luxury-content-wrapper {
-    gap: 10px;
-  }
-  .luxury-logo-img {
-    height: 80px !important;
-  }
-  .luxury-logo-glow {
-    width: 180px;
-    height: 180px;
-  }
-  .luxury-title {
-    font-size: 3.5rem !important;
-    letter-spacing: 7px !important;
-  }
-  .luxury-badge {
-    padding: 5px 14px;
-  }
+/* ============================================================
+   LIGHT THEME — INDEX / LANDING — CLEAN WHITE + GOLD
+   ============================================================ */
+[data-theme="light"] {
+  --bg-deep: #f9f9f9;
+  --bg-rich: #f2f2f2;
+  --bg-opulent: #ffffff;
+  --primary-gold: #b07818;
+  --primary-gold-light: #c89030;
+  --primary-gold-dark: #8a5e10;
+  --text-cream: #0d0d0d;
+  --text-ivory: #1a1a1a;
+  --text-champagne: #333333;
+  --border-gold: rgba(176, 120, 24, 0.25);
+  --border-gold-hover: rgba(176, 120, 24, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-bg-hover: rgba(248, 248, 248, 0.97);
 }
 
-@media (max-height: 620px) and (min-width: 769px) {
-  .luxury-content-wrapper {
-    gap: 7px;
-  }
-  .luxury-logo-img {
-    height: 65px !important;
-  }
-  .luxury-title {
-    font-size: 2.8rem !important;
-    letter-spacing: 6px !important;
-  }
-  .luxury-stat {
-    padding: 8px 4px;
-  }
-  .luxury-link {
-    padding: 10px var(--space-md);
-  }
-  .luxury-link-icon {
-    width: 46px;
-    height: 46px;
-  }
+[data-theme="light"] .luxury-bg-image {
+  opacity: 0.5;
+  filter: sepia(40%) saturate(70%) brightness(1.25) contrast(0.9);
+}
+[data-theme="light"] .luxury-bg-overlay-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 252, 242, 0.6) 0%,
+    rgba(255, 250, 235, 0.45) 50%,
+    rgba(255, 252, 242, 0.6) 100%
+  );
+}
+[data-theme="light"] .luxury-bg-overlay-2 {
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 40%,
+    rgba(255, 248, 210, 0.3) 0%,
+    transparent 70%
+  );
+}
+[data-theme="light"] .luxury-bg-overlay-3 {
+  opacity: 0;
+}
+[data-theme="light"] .luxury-bg-pattern {
+  opacity: 0;
 }
 
-/* ===== MOBILE ===== */
+[data-theme="light"] .luxury-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(176, 120, 24, 0.25);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+[data-theme="light"] .luxury-badge-text {
+  color: #444;
+}
+[data-theme="light"] .luxury-badge-icon {
+  color: #b07818;
+}
+[data-theme="light"] .luxury-badge-dot {
+  background: #16a34a;
+}
+
+[data-theme="light"] .luxury-title {
+  background: linear-gradient(135deg, #8a5e10 0%, #b07818 50%, #8a5e10 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-theme="light"] .luxury-subtitle {
+  color: #666;
+}
+
+[data-theme="light"] .luxury-ip {
+  background: #ffffff;
+  border: 1px solid rgba(176, 120, 24, 0.25);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  color: #0d0d0d;
+}
+[data-theme="light"] .luxury-ip:hover {
+  border-color: rgba(176, 120, 24, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .luxury-ip-code {
+  color: #0d0d0d;
+}
+[data-theme="light"] .luxury-ip-icon {
+  color: #b07818;
+}
+[data-theme="light"] .luxury-ip-divider {
+  background: rgba(176, 120, 24, 0.2);
+}
+[data-theme="light"] .luxury-ip-copy,
+[data-theme="light"] .luxury-ip-copied {
+  color: #b07818;
+}
+
+[data-theme="light"] .luxury-stat {
+  background: #ffffff;
+  border: 1px solid rgba(176, 120, 24, 0.18);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+[data-theme="light"] .luxury-stat:hover {
+  border-color: rgba(176, 120, 24, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .luxury-stat-icon {
+  color: #b07818;
+}
+[data-theme="light"] .luxury-stat-value {
+  color: #0d0d0d;
+}
+[data-theme="light"] .luxury-stat-label {
+  color: #888;
+}
+
+[data-theme="light"] .luxury-link {
+  background: #ffffff;
+  border: 2px solid rgba(176, 120, 24, 0.5) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+[data-theme="light"] .luxury-link:hover {
+  border-color: rgba(176, 120, 24, 0.8) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .luxury-link-label {
+  color: #333;
+}
+
+[data-theme="light"] .luxury-footer-text,
+[data-theme="light"] .luxury-footer-copyright {
+  color: #aaa;
+}
+[data-theme="light"] .luxury-footer-divider-icon {
+  color: rgba(176, 120, 24, 0.3);
+}
+[data-theme="light"] .luxury-footer-divider-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(176, 120, 24, 0.2),
+    transparent
+  );
+}
+[data-theme="light"] .luxury-particle {
+  background: rgba(176, 120, 24, 0.3);
+}
+
+/* ── Theme Toggle Button ── */
+.luxury-theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 11, 7, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: 50%;
+  color: #d4a853;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.luxury-theme-toggle:hover {
+  border-color: #d4a853;
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 0 16px rgba(212, 168, 83, 0.25);
+}
+[data-theme="light"] .luxury-theme-toggle {
+  background: #ffffff;
+  border-color: rgba(176, 120, 24, 0.3);
+  color: #b07818;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .luxury-theme-toggle:hover {
+  box-shadow: 0 4px 16px rgba(176, 120, 24, 0.2);
+  border-color: #b07818;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
   .luxury-container {
     height: auto;
     min-height: 100vh;
@@ -904,26 +966,19 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
   }
-
   .luxury-bg {
     position: fixed;
   }
-
   .luxury-content {
     height: auto;
     min-height: 100vh;
     min-height: 100dvh;
     padding: 16px 14px;
     overflow: visible;
-    align-items: flex-start;
-    padding-top: 20px;
   }
-
   .luxury-content-wrapper {
     gap: 10px;
     overflow-x: hidden;
-    justify-content: flex-start;
-    padding-top: 4px;
   }
 }
 
@@ -954,7 +1009,6 @@ body {
     font-size: 2.2rem !important;
     letter-spacing: 4px !important;
   }
-
   .luxury-subtitle {
     font-size: 0.6rem;
     letter-spacing: 1.5px;
@@ -1034,7 +1088,6 @@ body {
   .luxury-footer {
     margin-top: 2px;
   }
-
   .luxury-theme-toggle {
     top: 12px;
     right: 12px;
