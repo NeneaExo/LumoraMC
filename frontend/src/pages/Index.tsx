@@ -70,7 +70,7 @@ const Index = () => {
     {
       id: "store",
       label: "Store",
-      href: "/store",
+      href: "https://store.netheris.ro/",
       className: "store",
       external: false,
     },
