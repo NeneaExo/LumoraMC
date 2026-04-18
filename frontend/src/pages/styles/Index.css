@@ -51,9 +51,16 @@
 html,
 body {
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 body {
@@ -69,18 +76,17 @@ body {
 .luxury-container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
+  overflow: hidden;
   background: var(--bg-deep);
 }
 
 /* ===== LUXURY BACKGROUND WITH BANNER ===== */
 .luxury-bg {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -189,13 +195,13 @@ body {
   position: relative;
   z-index: 10;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px var(--space-xl);
+  padding: 16px var(--space-xl);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .luxury-content-wrapper {
@@ -207,7 +213,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-lg);
+  gap: 14px;
   overflow-x: hidden;
 }
 
@@ -303,7 +309,7 @@ body {
 
 @media (min-width: 768px) {
   .luxury-logo-img {
-    height: 120px;
+    height: 100px;
   }
 }
 
@@ -481,7 +487,7 @@ body {
   padding: var(--space-md) var(--space-xs);
   background: rgba(18, 11, 7, 0.5);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--border-gold);
+  border: 2px solid rgba(212, 168, 83, 0.35);
   border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
@@ -531,9 +537,10 @@ body {
 }
 
 .luxury-stat-value {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
   color: var(--text-cream);
   line-height: 1.2;
   margin-bottom: 2px;
@@ -569,13 +576,13 @@ body {
   padding: var(--space-lg) var(--space-md);
   background: rgba(18, 11, 7, 0.5);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--border-gold);
+  border: 2px solid rgba(212, 168, 83, 0.45);
   border-radius: 28px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
   position: relative;
   overflow: hidden;
-  min-width: 0;
+  min-width: 140px;
 }
 
 .luxury-link::after {
@@ -660,7 +667,7 @@ body {
 
 /* ===== LUXURY FOOTER ===== */
 .luxury-footer {
-  margin-top: var(--space-md);
+  margin-top: 4px;
   padding-top: var(--space-sm);
   border-top: 1px solid rgba(212, 168, 83, 0.15);
   position: relative;
@@ -768,22 +775,38 @@ body {
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .luxury-container {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .luxury-bg {
+    position: fixed;
+  }
+
   .luxury-content {
-    padding: 16px 14px 16px;
-    align-items: center;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 16px 14px;
+    overflow: visible;
   }
 
   .luxury-content-wrapper {
     gap: 10px;
-    width: 100%;
-    max-width: 100%;
+    overflow-x: hidden;
   }
+}
 
+@media (max-width: 480px) {
   .luxury-badge {
     padding: 5px 10px;
     gap: 5px;
-    max-width: 90vw;
+    max-width: 92vw;
   }
   .luxury-badge-text {
     font-size: 0.55rem;
@@ -811,15 +834,12 @@ body {
     font-size: 0.6rem;
     letter-spacing: 1.5px;
     word-spacing: 0;
-    padding: 0 8px;
   }
 
-  /* IP — compact, won't overflow */
   .luxury-ip {
     padding: 9px 14px;
     gap: 6px;
     border-radius: 50px;
-    width: auto;
     max-width: calc(100vw - 28px);
   }
   .luxury-ip-icon {
@@ -829,7 +849,6 @@ body {
   .luxury-ip-code {
     font-size: 0.82rem !important;
     letter-spacing: 1px !important;
-    white-space: nowrap;
   }
   .luxury-ip-divider {
     height: 14px;
@@ -842,10 +861,8 @@ body {
     white-space: nowrap;
   }
 
-  /* Stats */
   .luxury-stats {
     gap: 5px;
-    max-width: 100%;
     width: 100%;
   }
   .luxury-stat {
@@ -859,17 +876,15 @@ body {
     margin-bottom: 3px;
   }
   .luxury-stat-value {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   .luxury-stat-label {
     font-size: 0.48rem;
     letter-spacing: 0.3px;
   }
 
-  /* Links */
   .luxury-links {
     gap: 6px;
-    max-width: 100%;
     width: 100%;
   }
   .luxury-link {
@@ -912,7 +927,7 @@ body {
     letter-spacing: 0.5px !important;
   }
   .luxury-stat-value {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
   .luxury-link-icon {
     width: 38px;
